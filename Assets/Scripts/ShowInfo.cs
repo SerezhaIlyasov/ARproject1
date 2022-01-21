@@ -8,11 +8,12 @@ public class ShowInfo : MonoBehaviour
     int clicId = 0;
     public void Start()
     {
-        plane.SetActive(true);
+        plane.SetActive(false);
+        SetActiveWithChildren(true);
     }
     public void OnMouseDown()
     {
-        if (clicId % 2 == 1)
+        if (clicId % 2 == 0)
         {
             plane.SetActive(true);
         }
@@ -22,6 +23,18 @@ public class ShowInfo : MonoBehaviour
         }
         clicId++;
     }
+
+    void SetActiveWithChildren(bool isActive)
+    {
+        GameObject[] childrens = plane.GetComponentsInChildren<GameObject>();
+        foreach (GameObject child in childrens)
+        {
+            child.SetActive(isActive);
+        }
+
+
+    }
+
 
 
 
