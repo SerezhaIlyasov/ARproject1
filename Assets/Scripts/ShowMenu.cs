@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class ShowMenu : MonoBehaviour
 {
-    public GameObject mainMenu;
+    public GameObject [] mainMenu;
+
     private void Start()
     {
-        mainMenu.SetActive(false);
+        for (int i = 0; i < 2; i++)
+        {
+            mainMenu[i].SetActive(false);
+        }
+    }
+    public void Show()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            mainMenu[i].SetActive(true);
+        }
     }
 
 
-    public void ShowMainMenu()
+    public void Hide()
     {
-        mainMenu.SetActive(true);
+        for (int i = 0; i < 2; i++)
+        {
+            mainMenu[i].SetActive(false);
+        }
     }
 
 
